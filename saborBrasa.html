@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabor & Brasa - Pizzaria Artesanal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header id="site-header">
+        <div class="header-container">
+            <a href="index.html" class="logo">🔥 Sabor & Brasa</a>
+            <nav id="main-nav">
+                <a href="#cardapio">Cardápio</a>
+                <a href="#historia">Nossa História</a>
+                <a href="#" id="link-telefone">Contato</a>
+                <a href="carrinho.html" class="btn btn-cart">
+                    🛒 Carrinho (<span id="contador-carrinho">0</span>)
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Seção Hero / Boas-vindas -->
+    <section class="hero container">
+        <span class="eyebrow">Pizzaria artesanal • Forno a lenha</span>
+        <h1>Sabor que acende a memória.</h1>
+        <p>Massa artesanal, ingredientes selecionados e o calor do forno a lenha em uma experiência feita para compartilhar.</p>
+        <div class="hero-buttons">
+            <a href="#cardapio" class="btn btn-primary">Ver o Cardápio</a>
+        </div>
+    </section>
+
+    <!-- Seção do Cardápio -->
+    <main class="container" id="cardapio">
+        <div class="section-title">
+            <span>Os Favoritos da Casa</span>
+            <h2>Difícil escolher. Fácil amar.</h2>
+            <p>Algumas das nossas criações mais pedidas, direto do forno para a sua mesa.</p>
+        </div>
+
+        <!-- Filtros do Cardápio -->
+        <div class="filters">
+            <button class="filter active" data-categoria="todas">Todas</button>
+            <button class="filter" data-categoria="salgadas">Salgadas</button>
+            <button class="filter" data-categoria="doces">Doces</button>
+            <button class="filter" data-categoria="bebidas">Bebidas</button>
+            <button class="filter" data-categoria="entradas">Entradas</button>
+        </div>
+
+        <!-- Grid de Produtos -->
+        <div id="grid-produtos" class="grid-produtos">
+
+            <!-- Produto 1 -->
+            <article class="product-card" data-id="1" data-categoria="salgadas" data-nome="Pizza de Calabresa Especial" data-preco="55.99" data-imagem="https://cantinagiovannifreddo.com.br/wp-content/uploads/2023/09/PIZZA-DE-CALABRESA.webp">
+                <div class="product-image">
+                    <img src="https://cantinagiovannifreddo.com.br/wp-content/uploads/2023/09/PIZZA-DE-CALABRESA.webp" alt="Calabresa Especial">
+                    <span class="product-badge">Mais vendida 🔥</span>
+                </div>
+                <div class="product-body">
+                    <h3>Pizza de Calabresa Especial</h3>
+                    <p>Calabresa fatiada, muçarela artesanal, cebola roxa fresca e orégano de fogueira.</p>
+                    <div class="product-row">
+                        <span class="price">R$ 55,99</span>
+                        <button class="btn btn-primary" onclick="addToCartFromHTML(this)">+ Adicionar</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Produto 2 -->
+            <article class="product-card" data-id="2" data-categoria="salgadas" data-nome="Quatro Queijos Premium" data-preco="69.99" data-imagem="https://redefoodservice.com.br/wp-content/uploads/2023/07/Pizza-Quatro-Queijos.jpg">
+                <div class="product-image">
+                    <img src="https://redefoodservice.com.br/wp-content/uploads/2023/07/Pizza-Quatro-Queijos.jpg" alt="Quatro Queijos Premium">
+                    <span class="product-badge">Chef choice ⭐</span>
+                </div>
+                <div class="product-body">
+                    <h3>Quatro Queijos Premium</h3>
+                    <p>Muçarela, provolone defumado, parmesão e catupiry em uma combinação cremosa.</p>
+                    <div class="product-row">
+                        <span class="price">R$ 69,99</span>
+                        <button class="btn btn-primary" onclick="addToCartFromHTML(this)">+ Adicionar</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Produto 3 -->
+            <article class="product-card" data-id="3" data-categoria="salgadas" data-nome="Frango com Catupiry Real" data-preco="59.90" data-imagem="https://cantinagiovannifreddo.com.br/wp-content/uploads/2024/10/37f450b2-9115-415b-93ce-e484421ce3d5.jpg">
+                <div class="product-image">
+                    <img src="https://cantinagiovannifreddo.com.br/wp-content/uploads/2024/10/37f450b2-9115-415b-93ce-e484421ce3d5.jpg" alt="Frango com Catupiry Real">
+                    <span class="product-badge">Clássico 🍕</span>
+                </div>
+                <div class="product-body">
+                    <h3>Frango com Catupiry Real</h3>
+                    <p>Frango desfiado ao molho especial, catupiry e milho crocante.</p>
+                    <div class="product-row">
+                        <span class="price">R$ 59,90</span>
+                        <button class="btn btn-primary" onclick="addToCartFromHTML(this)">+ Adicionar</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Produto 4 -->
+            <article class="product-card" data-id="4" data-categoria="doces" data-nome="Nutella com Morango" data-preco="58.00" data-imagem="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900&auto=format&fit=crop&q=85">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=900&auto=format&fit=crop&q=85" alt="Nutella com Morango">
+                    <span class="product-badge">Sobremesa top 🍓</span>
+                </div>
+                <div class="product-body">
+                    <h3>Nutella com Morango</h3>
+                    <p>Massa leve, Nutella cremosa e morangos frescos fatiados na hora.</p>
+                    <div class="product-row">
+                        <span class="price">R$ 58,00</span>
+                        <button class="btn btn-primary" onclick="addToCartFromHTML(this)">+ Adicionar</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Produto 5 -->
+            <article class="product-card" data-id="5" data-categoria="bebidas" data-nome="Coca-Cola Original 2L" data-preco="14.00" data-imagem="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=900&auto=format&fit=crop&q=85">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=900&auto=format&fit=crop&q=85" alt="Coca-Cola 2L">
+                    <span class="product-badge">Gelada 🥤</span>
+                </div>
+                <div class="product-body">
+                    <h3>Coca-Cola Original 2L</h3>
+                    <p>Garrafa de 2 litros bem gelada para acompanhar sua pizza artesanal.</p>
+                    <div class="product-row">
+                        <span class="price">R$ 14,00</span>
+                        <button class="btn btn-primary" onclick="addToCartFromHTML(this)">+ Adicionar</button>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Produto 6 -->
+            <article class="product-card" data-id="6" data-categoria="entradas" data-nome="Batata Rústica com Bacon" data-preco="32.00" data-imagem="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=900&auto=format&fit=crop&q=85">
+                <div class="product-image">
+                    <img src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?w=900&auto=format&fit=crop&q=85" alt="Batata Rústica">
+                    <span class="product-badge">Entrada VIP 🍟</span>
+                </div>
+                <div class="product-body">
+                    <h3>Batata Rústica com Bacon & Cheddar</h3>
+                    <p>Batatas rústicas assadas com cheddar cremoso e bacon crocante.</p>
+                    <div class="product-row">
+                        <span class="price">R$ 32,00</span>
+                        <button class="btn btn-primary" onclick="addToCartFromHTML(this)">+ Adicionar</button>
+                    </div>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container footer-content">
+            <div>
+                <h3>🔥 Sabor & Brasa</h3>
+                <p>Forno a lenha, ingredientes de verdade e aquela mesa que pede mais uma fatia.</p>
+            </div>
+            <div>
+                <h4>Contato</h4>
+                <p>WhatsApp: <a href="https://wa.me/5511999998888" target="_blank">(11) 99999-8888</a></p>
+                <p>Email: contato@saborbrasa.com.br</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Sabor & Brasa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Notificação Toast -->
+    <div id="toast-notificacao"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

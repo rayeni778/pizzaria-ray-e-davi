@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - La Piazzetta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="cabecalho-principal">
+        <div class="container header-flex">
+            <a href="index.html" class="logo">🍕 La Piazzetta</a>
+            <nav>
+                <ul class="menu-principal">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-sobre">Sobre ▾</a>
+                        <ul id="menu-vertical-sobre" class="submenu">
+                            <li><a href="#" id="item-empresa">Empresa</a></li>
+                            <li><a href="#" id="item-clientes">Clientes</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-contato">Contato ▾</a>
+                        <ul id="menu-vertical-contato" class="submenu">
+                            <li><a href="#" id="item-telefones">Telefones</a></li>
+                            <li><a href="#" id="item-email">Email</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-form">
+        <div class="form-wrapper">
+            <h2>Crie sua conta</h2>
+            
+            <!-- COMENTÁRIO EXPLICATIVO PARA A AVALIAÇÃO:
+            O LocalStorage é um recurso do navegador que permite salvar dados localmente, 
+            sem tempo de expiração. No entanto, ele só salva textos (strings).
+            O JSON (JavaScript Object Notation) é usado aqui para converter 
+            a nossa lista de usuários (um Array de Objetos JS) em uma string 
+            (com JSON.stringify) para salvar, e depois reverter para Objeto 
+            (com JSON.parse) ao ler os dados.
+            -->
+
+            <form id="form-cadastro">
+                <div class="form-group">
+                    <label for="cad-nome">Nome Completo</label>
+                    <input type="text" id="cad-nome" required placeholder="Digite seu nome completo">
+                </div>
+
+                <div class="form-group">
+                    <label for="cad-cpf">CPF</label>
+                    <input type="text" id="cad-cpf" required placeholder="000.000.000-00" maxlength="14">
+                </div>
+
+                <div class="form-group">
+                    <label for="cad-endereco">Endereço de Entrega</label>
+                    <input type="text" id="cad-endereco" required placeholder="Rua, Número, Bairro, Cidade">
+                </div>
+
+                <div class="form-group">
+                    <label for="cad-email">E-mail</label>
+                    <input type="email" id="cad-email" required placeholder="seuemail@exemplo.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="cad-senha">Senha (Mínimo 6 caracteres)</label>
+                    <input type="password" id="cad-senha" required minlength="6" placeholder="Crie uma senha segura">
+                </div>
+
+                <div id="msg-erro-cadastro" class="msg msg-erro"></div>
+                <div id="msg-sucesso-cadastro" class="msg msg-sucesso"></div>
+
+                <div class="acoes-form">
+                    <button type="submit" class="btn btn-primario">Cadastrar</button>
+                    <a href="index.html" class="btn btn-secundario">Voltar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><span id="data-atual"></span> - Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>[NOME DO ALUNO 1]</strong>, <strong>[NOME DO ALUNO 2]</strong>, <strong>[NOME DO ALUNO 3]</strong></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

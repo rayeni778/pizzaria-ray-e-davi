@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - La Piazzetta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="cabecalho-principal">
+        <div class="container header-flex">
+            <a href="index.html" class="logo">🍕 La Piazzetta</a>
+            <nav>
+                <ul class="menu-principal">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-sobre">Sobre ▾</a>
+                        <ul id="menu-vertical-sobre" class="submenu">
+                            <li><a href="#" id="item-empresa">Empresa</a></li>
+                            <li><a href="#" id="item-clientes">Clientes</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-contato">Contato ▾</a>
+                        <ul id="menu-vertical-contato" class="submenu">
+                            <li><a href="#" id="item-telefones">Telefones</a></li>
+                            <li><a href="#" id="item-email">Email</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-form">
+        <div class="form-wrapper">
+            <h2>Fazer Login</h2>
+            <form id="form-login">
+                <div class="form-group">
+                    <label for="login-email">E-mail</label>
+                    <input type="email" id="login-email" required placeholder="Digite seu e-mail">
+                </div>
+
+                <div class="form-group">
+                    <label for="login-senha">Senha</label>
+                    <input type="password" id="login-senha" required placeholder="Digite sua senha">
+                </div>
+
+                <div id="msg-erro-login" class="msg msg-erro"></div>
+
+                <div class="acoes-form">
+                    <button type="submit" class="btn btn-primario">Entrar</button>
+                    <a href="index.html" class="btn btn-secundario">Voltar</a>
+                </div>
+                
+                <p class="link-rodape">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><span id="data-atual"></span> - Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>[NOME DO ALUNO 1]</strong>, <strong>[NOME DO ALUNO 2]</strong>, <strong>[NOME DO ALUNO 3]</strong></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

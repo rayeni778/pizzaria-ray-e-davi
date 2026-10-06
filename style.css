@@ -1,0 +1,568 @@
+/* ==========================================================================
+   1. RESET E VARIÁVEIS (:root)
+   ========================================================================== */
+   :root {
+    /* Paleta de Cores Exigida */
+    --vermelho-tomate: #C0392B;
+    --laranja-queijo: #F39C12;
+    --creme: #FFF6E5;
+    --marrom-escuro: #3E2723;
+    --verde-manjericao: #27AE60;
+
+    /* Outras Variáveis */
+    --fonte-titulos: 'Playfair Display', serif;
+    --fonte-textos: 'Poppins', sans-serif;
+    --sombra-padrao: 0 4px 12px rgba(0,0,0,0.2);
+    --sombra-hover: 0 8px 24px rgba(0,0,0,0.4);
+    --transicao: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================================================
+   2. BODY E BACKGROUND TEMÁTICO
+   ========================================================================== */
+body {
+    font-family: var(--fonte-textos);
+    color: var(--creme);
+    background-color: var(--marrom-escuro); /* Fallback caso não carregue a imagem */
+    
+    /* Imagem de fundo com overlay (camada escura gradiente) para garantir leitura */
+    background-image: linear-gradient(to bottom, rgba(62, 39, 35, 0.9), rgba(62, 39, 35, 0.85)), url('img/fundo-pizzaria.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+main {
+    flex: 1; /* Faz o main expandir e empurrar o footer pra baixo */
+    padding: 40px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fonte-titulos);
+    font-weight: 700;
+}
+
+/* ==========================================================================
+   3. HEADER FIXO E MENUS (COM SUBMENU)
+   ========================================================================== */
+#cabecalho-principal {
+    background-color: rgba(62, 39, 35, 0.98);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: var(--sombra-padrao);
+    border-bottom: 3px solid var(--vermelho-tomate);
+}
+
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.logo {
+    color: var(--laranja-queijo);
+    font-family: var(--fonte-titulos);
+    font-size: 1.8rem;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu-principal {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.menu-principal > li > a {
+    color: var(--creme);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 10px;
+    border-radius: 4px;
+    transition: var(--transicao);
+}
+
+.menu-principal > li > a:hover,
+.menu-principal > li > a:active,
+.menu-principal > li > a:focus {
+    background-color: var(--vermelho-tomate);
+    color: #fff;
+    outline: none;
+}
+
+/* Submenu Vertical (Lógica via JS) */
+.has-submenu {
+    position: relative;
+}
+
+.submenu {
+    list-style: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--creme);
+    min-width: 160px;
+    box-shadow: var(--sombra-padrao);
+    border-radius: 4px;
+    margin-top: 10px;
+    
+    /* Escondido por padrão - Transição suave */
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: var(--transicao);
+    z-index: 200;
+}
+
+.submenu.active {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.submenu li a {
+    display: block;
+    padding: 12px 15px;
+    color: var(--marrom-escuro);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transicao);
+}
+
+.submenu li a:hover,
+.submenu li a:focus {
+    background-color: var(--laranja-queijo);
+    color: var(--marrom-escuro);
+    outline: none;
+}
+
+/* ==========================================================================
+   4. BOTÕES PADRONIZADOS (.btn)
+   ========================================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-family: var(--fonte-textos);
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transicao);
+}
+
+.btn-primario {
+    background-color: var(--vermelho-tomate);
+    color: #fff;
+}
+
+.btn-primario:hover,
+.btn-primario:focus-visible {
+    background-color: #A93226; /* Tom mais escuro do vermelho */
+    box-shadow: var(--sombra-padrao);
+    transform: translateY(-2px);
+}
+
+.btn-secundario {
+    background-color: var(--marrom-escuro);
+    color: var(--laranja-queijo);
+    border: 2px solid var(--laranja-queijo);
+}
+
+.btn-secundario:hover,
+.btn-secundario:focus-visible {
+    background-color: var(--laranja-queijo);
+    color: var(--marrom-escuro);
+}
+
+.btn-block {
+    width: 100%;
+    display: block;
+}
+
+/* ==========================================================================
+   5. FORMULÁRIOS E INPUTS (:focus obrigatório)
+   ========================================================================== */
+.page-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-wrapper {
+    background-color: var(--creme);
+    color: var(--marrom-escuro);
+    padding: 40px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: var(--sombra-padrao);
+}
+
+.form-wrapper h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--vermelho-tomate);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-group input, 
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-family: var(--fonte-textos);
+    font-size: 1rem;
+    background-color: #fff;
+    transition: var(--transicao);
+}
+
+/* REGRA DE :FOCUS EXIGIDA: Mudar cor e aumentar a borda SEM deslocar layout 
+   Utilizamos box-shadow em vez de aumentar o border-width para evitar o salto de layout */
+.form-group input:focus, 
+.form-group select:focus {
+    outline: none;
+    border-color: var(--laranja-queijo);
+    box-shadow: 0 0 0 3px var(--laranja-queijo); /* Simula a borda de 3px */
+}
+
+.acoes-form {
+    display: flex;
+    gap: 10px;
+    margin-top: 25px;
+}
+
+.acoes-form .btn {
+    flex: 1;
+}
+
+.link-rodape {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.link-rodape a {
+    color: var(--vermelho-tomate);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+/* Mensagens de Sucesso/Erro */
+.msg {
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 15px;
+    display: none;
+    text-align: center;
+    font-weight: 500;
+}
+.msg-erro { background-color: #f8d7da; color: #721c24; border: 1px solid #f5c6cb; }
+.msg-sucesso { background-color: #d4edda; color: #155724; border: 1px solid #c3e6cb; }
+
+/* ==========================================================================
+   6. CARDS DE PIZZA (INDEX E CARDÁPIO)
+   ========================================================================== */
+.hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.hero h1 {
+    font-size: 3rem;
+    color: var(--laranja-queijo);
+    margin-bottom: 15px;
+}
+.hero p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 25px auto;
+}
+
+.cardapio-geral h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: var(--creme);
+}
+
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.card-produto {
+    background-color: var(--creme);
+    color: var(--marrom-escuro);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: var(--sombra-padrao);
+    transition: var(--transicao);
+    display: flex;
+    flex-direction: column;
+}
+
+/* Interação do Card (Hover: elevação + leve zoom) */
+.card-produto:hover,
+.card-produto:focus-within {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--sombra-hover);
+}
+
+.card-emoji {
+    font-size: 4rem;
+    margin-bottom: 10px;
+}
+
+.card-produto h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.card-produto p {
+    font-size: 0.85rem;
+    color: #666;
+    flex-grow: 1; /* Joga o preço pro fundo */
+    margin-bottom: 15px;
+}
+
+.preco {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--vermelho-tomate);
+    margin-bottom: 15px;
+}
+
+/* Aviso e botões no Card */
+.aviso-login {
+    font-size: 0.9rem;
+    color: var(--vermelho-tomate);
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   7. LAYOUT DO CARDÁPIO LOGADO (GRID/FLEXBOX E CARRINHO)
+   ========================================================================== */
+.layout-cardapio {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+}
+
+.coluna-produtos {
+    flex: 1;
+}
+
+.saudacao {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: rgba(0,0,0,0.4);
+    padding: 15px 20px;
+    border-radius: 8px;
+}
+
+.filtros {
+    margin-bottom: 25px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-filtro {
+    background-color: var(--marrom-escuro);
+    color: var(--creme);
+    border: 1px solid var(--creme);
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: var(--fonte-textos);
+    transition: var(--transicao);
+}
+
+.btn-filtro:hover, .btn-filtro.active {
+    background-color: var(--laranja-queijo);
+    color: var(--marrom-escuro);
+    border-color: var(--laranja-queijo);
+}
+
+/* Painel Lateral do Carrinho */
+.coluna-carrinho {
+    width: 350px;
+    background-color: var(--creme);
+    color: var(--marrom-escuro);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--sombra-padrao);
+    position: sticky;
+    top: 100px; /* Para não bater no header fixo */
+}
+
+.carrinho-box h3 {
+    margin-bottom: 15px;
+    border-bottom: 2px solid var(--vermelho-tomate);
+    padding-bottom: 10px;
+}
+
+#lista-carrinho {
+    max-height: 250px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+.item-carrinho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px dashed #ccc;
+    font-size: 0.9rem;
+}
+
+.item-info {
+    flex: 1;
+}
+
+.item-acoes button {
+    background-color: var(--marrom-escuro);
+    color: #fff;
+    border: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 0 2px;
+}
+.item-acoes button.btn-remover {
+    background-color: var(--vermelho-tomate);
+}
+
+.resumo-valores {
+    font-size: 1.2rem;
+    text-align: right;
+    margin: 15px 0;
+}
+
+.carrinho-box hr {
+    border: none;
+    border-top: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+#form-checkout h4 {
+    margin-bottom: 15px;
+    color: var(--vermelho-tomate);
+}
+
+/* ==========================================================================
+   8. MODAIS DINÂMICOS (SOBRE/CONTATO)
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-box {
+    background-color: var(--creme);
+    color: var(--marrom-escuro);
+    padding: 30px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: var(--sombra-hover);
+}
+
+.btn-fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--vermelho-tomate);
+}
+
+.modal-box h2 {
+    margin-bottom: 15px;
+    color: var(--vermelho-tomate);
+}
+
+/* ==========================================================================
+   9. RODAPÉ E MEDIA QUERIES (RESPONSIVO Mobile-First Ajustes)
+   ========================================================================== */
+footer {
+    background-color: rgba(39, 15, 10, 0.95);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    border-top: 2px solid var(--laranja-queijo);
+}
+footer strong { color: var(--laranja-queijo); }
+
+/* Para tablets e celulares */
+@media (max-width: 900px) {
+    .layout-cardapio {
+        flex-direction: column;
+    }
+    .coluna-carrinho {
+        width: 100%;
+        position: static; /* Remove sticky no celular */
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .header-flex {
+        flex-direction: column;
+        height: auto;
+        padding: 15px 0;
+        gap: 15px;
+    }
+    .menu-principal {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero h1 { font-size: 2.2rem; }
+    .acoes-form { flex-direction: column; }
+}

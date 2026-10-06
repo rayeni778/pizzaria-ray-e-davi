@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Piazzetta - Pizzaria Artesanal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header id="cabecalho-principal">
+        <div class="container header-flex">
+            <a href="index.html" class="logo">🍕 La Piazzetta</a>
+            <nav>
+                <ul class="menu-principal">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-sobre">Sobre ▾</a>
+                        <ul id="menu-vertical-sobre" class="submenu">
+                            <li><a href="#" id="item-empresa">Empresa</a></li>
+                            <li><a href="#" id="item-clientes">Clientes</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-contato">Contato ▾</a>
+                        <ul id="menu-vertical-contato" class="submenu">
+                            <li><a href="#" id="item-telefones">Telefones</a></li>
+                            <li><a href="#" id="item-email">Email</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero container">
+            <h1>O verdadeiro sabor da Itália na sua casa</h1>
+            <p>Bem-vindo ao nosso cardápio digital! Explore nossas deliciosas opções abaixo. Para adicionar itens ao carrinho e fazer seu pedido com entrega rápida, cadastre-se na nossa plataforma.</p>
+            <a href="cadastro.html" class="btn btn-primario">Quero me cadastrar</a>
+        </section>
+
+        <!-- Seção Cardápio Geral com itens escritos em HTML -->
+        <section class="cardapio-geral container">
+            <h2>Nosso Cardápio</h2>
+            
+            <div id="grid-cardapio-index" class="grid-produtos">
+                
+                <!-- TRADICIONAIS -->
+                <article class="card-produto" data-categoria="Tradicionais">
+                    <img src="https://blog.dellys.com.br/wp-content/uploads/2024/08/2-12.png" alt="Mussarela" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Mussarela</h3>
+                    <p>Molho de tomate, muito queijo mussarela, orégano.</p>
+                    <div class="preco">R$ 45,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <article class="card-produto" data-categoria="Tradicionais">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBYGlPYaTxuRplDuJFJXFHnHuF8C5zyQo6Z6REKwcekGVW46BRz10K840v&s=10" alt="Calabresa" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Calabresa</h3>
+                    <p>Molho de tomate, mussarela, calabresa fatiada, cebola.</p>
+                    <div class="preco">R$ 48,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <article class="card-produto" data-categoria="Tradicionais">
+                    <img src="https://www.ogastronomo.com.br/upload/389528334-curiosidades-sobre-a-pizza-portuguesa.jpg" alt="Portuguesa" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Portuguesa</h3>
+                    <p>Mussarela, presunto, ovos, cebola, ervilha e azeitonas.</p>
+                    <div class="preco">R$ 52,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <article class="card-produto" data-categoria="Tradicionais">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo4DA3QfVdp9Ky4eUa3MDq7TBY9aoLICpB-kFGZD8hJY61Ul3SXsJdxQc&s=10" alt="Margherita" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Margherita</h3>
+                    <p>Molho de tomate, mussarela, manjericão fresco, tomate.</p>
+                    <div class="preco">R$ 47,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <!-- ESPECIAIS -->
+                <article class="card-produto" data-categoria="Especiais">
+                    <img src="https://www.sabornamesa.com.br/media/k2/items/cache/ada34cd2101afafaba465aad112ee3c1_XL.jpg" alt="Frango com Catupiry" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Frango c/ Catupiry</h3>
+                    <p>Mussarela, frango desfiado, legítimo Catupiry.</p>
+                    <div class="preco">R$ 58,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <article class="card-produto" data-categoria="Especiais">
+                    <img src="https://www.sabornamesa.com.br/media/k2/items/cache/32699af76cfc6e0191d612ffd4e88ee9_XL.jpg" alt="Quatro Queijos" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Quatro Queijos</h3>
+                    <p>Mussarela, provolone, gorgonzola e parmesão.</p>
+                    <div class="preco">R$ 60,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <article class="card-produto" data-categoria="Especiais">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ut6XSIzNVv1tfDNaUab0b3-qeepbyjb6IRE_6nXtNiLk0tISsx2LRmR5&s=10" alt="Pepperoni" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Pepperoni</h3>
+                    <p>Mussarela, fatias de pepperoni, pimentão (opcional).</p>
+                    <div class="preco">R$ 62,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <article class="card-produto" data-categoria="Especiais">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyLMsZWjmxKEtF_bqIDiUTRXE8C93QXoJMJ0RHd2nN56eNfOW5gq6Db5o&s=10" alt="Bacon com Cheddar" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Bacon com Cheddar</h3>
+                    <p>Mussarela, bacon crocante, tiras de cheddar.</p>
+                    <div class="preco">R$ 65,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <!-- DOCES -->
+                <article class="card-produto" data-categoria="Doces">
+                    <img src="https://beatoven.com.br/wp-content/uploads/2024/11/sq-chocolate-com-morango.jpg.webp" alt="Chocolate com Morango" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Chocolate c/ Morango</h3>
+                    <p>Chocolate ao leite derretido, morangos frescos.</p>
+                    <div class="preco">R$ 55,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <article class="card-produto" data-categoria="Doces">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmTLN2jaZZy5qnQP3EkFxXd39V8uOQlj0jRZBCF_1HsDr0lVHHNULRnugC&s=10" alt="Banana com Canela" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Banana com Canela</h3>
+                    <p>Mussarela, banana fatiada, açúcar e canela.</p>
+                    <div class="preco">R$ 45,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <!-- BEBIDAS -->
+                <article class="card-produto" data-categoria="Bebidas">
+                    <img src="https://pizzabrasil.comprageral.com/_core/_uploads/69/2021/03/0054260321ichgjhejkb.jpg" alt="Refrigerante 2L" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Refrigerante 2L</h3>
+                    <p>Coca-Cola, Guaraná, Fanta.</p>
+                    <div class="preco">R$ 15,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+                <article class="card-produto" data-categoria="Bebidas">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ-ygD54GbSnXBJIuob5XGAg4qrie7k8-zHFwrl8_nwgMLSuwS_VXhoqrS&s=10" alt="Suco Natural 500ml" class="card-imagem" onerror="this.style.display='none'">
+                    <h3>Suco Natural 500ml</h3>
+                    <p>Laranja, Limão, Maracujá.</p>
+                    <div class="preco">R$ 10,00</div>
+                    <p class="aviso-login">Faça login para pedir</p>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><span id="data-atual"></span> - &copy;Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>Davi Gabriel</strong>, <strong>Rayeni</strong></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
