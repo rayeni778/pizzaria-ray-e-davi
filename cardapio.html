@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="body-logado">
-
     <header id="cabecalho-principal">
         <div class="container header-flex">
             <a href="index.html" class="logo">🍕 La Piazzetta</a>
@@ -36,17 +35,12 @@
             </nav>
         </div>
     </header>
-
-    <main class="container layout-cardapio" id="area-cardapio-logado">
-        
-        <!-- Coluna da Esquerda: Produtos -->
+    <main class="container layout-cardapio" id="area-cardapio-logado">       
         <div class="coluna-produtos">
             <div class="saudacao">
                 <h2 id="saudacao-usuario">Olá, Cliente! O que vai ser hoje?</h2>
                 <button id="btn-sair" class="btn btn-secundario">Sair da Conta</button>
             </div>
-
-            <!-- Filtros de Categoria -->
             <div class="filtros">
                 <button class="btn-filtro active" data-cat="Todos">Todos</button>
                 <button class="btn-filtro" data-cat="Tradicionais">Tradicionais</button>
@@ -54,140 +48,117 @@
                 <button class="btn-filtro" data-cat="Doces">Doces</button>
                 <button class="btn-filtro" data-cat="Bebidas">Bebidas</button>
             </div>
-
-            <!-- Produtos Escritos em HTML (Logado) -->
             <div id="grid-cardapio-pedidos" class="grid-produtos">
-                
-                <!-- TRADICIONAIS -->
                 <article class="card-produto" data-categoria="Tradicionais">
-                    <img src="img/mussarela.jpg" alt="Mussarela" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://blog.dellys.com.br/wp-content/uploads/2024/08/2-12.png" alt="Mussarela" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Mussarela</h3>
                     <p>Molho de tomate, muito queijo mussarela, orégano.</p>
-                    <div class="preco">R$ 45,00</div>
+                    <div class="preco">R$ 55,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(1)">Adicionar ao Carrinho</button>
                 </article>
-
                 <article class="card-produto" data-categoria="Tradicionais">
-                    <img src="img/calabresa.jpg" alt="Calabresa" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBYGlPYaTxuRplDuJFJXFHnHuF8C5zyQo6Z6REKwcekGVW46BRz10K840v&s=10" alt="Calabresa" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Calabresa</h3>
                     <p>Molho de tomate, mussarela, calabresa fatiada, cebola.</p>
-                    <div class="preco">R$ 48,00</div>
+                    <div class="preco">R$ 59,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(2)">Adicionar ao Carrinho</button>
                 </article>
-
                 <article class="card-produto" data-categoria="Tradicionais">
-                    <img src="img/portuguesa.jpg" alt="Portuguesa" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://www.ogastronomo.com.br/upload/389528334-curiosidades-sobre-a-pizza-portuguesa.jpg" alt="Portuguesa" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Portuguesa</h3>
                     <p>Mussarela, presunto, ovos, cebola, ervilha e azeitonas.</p>
-                    <div class="preco">R$ 52,00</div>
+                    <div class="preco">R$ 64,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(3)">Adicionar ao Carrinho</button>
                 </article>
-
                 <article class="card-produto" data-categoria="Tradicionais">
-                    <img src="img/margherita.jpg" alt="Margherita" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo4DA3QfVdp9Ky4eUa3MDq7TBY9aoLICpB-kFGZD8hJY61Ul3SXsJdxQc&s=10" alt="Margherita" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Margherita</h3>
                     <p>Molho de tomate, mussarela, manjericão fresco, tomate.</p>
-                    <div class="preco">R$ 47,00</div>
+                    <div class="preco">R$ 55,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(4)">Adicionar ao Carrinho</button>
                 </article>
-
-                <!-- ESPECIAIS -->
                 <article class="card-produto" data-categoria="Especiais">
-                    <img src="img/frango.jpg" alt="Frango com Catupiry" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://www.sabornamesa.com.br/media/k2/items/cache/ada34cd2101afafaba465aad112ee3c1_XL.jpg" alt="Frango com Catupiry" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Frango c/ Catupiry</h3>
                     <p>Mussarela, frango desfiado, legítimo Catupiry.</p>
-                    <div class="preco">R$ 58,00</div>
+                    <div class="preco">R$ 64,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(5)">Adicionar ao Carrinho</button>
                 </article>
 
                 <article class="card-produto" data-categoria="Especiais">
-                    <img src="img/quatroqueijos.jpg" alt="Quatro Queijos" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://www.sabornamesa.com.br/media/k2/items/cache/32699af76cfc6e0191d612ffd4e88ee9_XL.jpg" alt="Quatro Queijos" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Quatro Queijos</h3>
                     <p>Mussarela, provolone, gorgonzola e parmesão.</p>
-                    <div class="preco">R$ 60,00</div>
+                    <div class="preco">R$ 69,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(6)">Adicionar ao Carrinho</button>
                 </article>
-
                 <article class="card-produto" data-categoria="Especiais">
-                    <img src="img/pepperoni.jpg" alt="Pepperoni" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ut6XSIzNVv1tfDNaUab0b3-qeepbyjb6IRE_6nXtNiLk0tISsx2LRmR5&s=10" alt="Pepperoni" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Pepperoni</h3>
                     <p>Mussarela, fatias de pepperoni, pimentão (opcional).</p>
-                    <div class="preco">R$ 62,00</div>
+                    <div class="preco">R$ 69,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(7)">Adicionar ao Carrinho</button>
                 </article>
-
                 <article class="card-produto" data-categoria="Especiais">
-                    <img src="img/bacon.jpg" alt="Bacon com Cheddar" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyLMsZWjmxKEtF_bqIDiUTRXE8C93QXoJMJ0RHd2nN56eNfOW5gq6Db5o&s=10" alt="Bacon com Cheddar" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Bacon com Cheddar</h3>
                     <p>Mussarela, bacon crocante, tiras de cheddar.</p>
-                    <div class="preco">R$ 65,00</div>
+                    <div class="preco">R$ 64,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(8)">Adicionar ao Carrinho</button>
                 </article>
 
                 <!-- DOCES -->
                 <article class="card-produto" data-categoria="Doces">
-                    <img src="img/chocolate.jpg" alt="Chocolate com Morango" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://beatoven.com.br/wp-content/uploads/2024/11/sq-chocolate-com-morango.jpg.webp" alt="Chocolate com Morango" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Chocolate c/ Morango</h3>
                     <p>Chocolate ao leite derretido, morangos frescos.</p>
-                    <div class="preco">R$ 55,00</div>
+                    <div class="preco">R$ 54,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(9)">Adicionar ao Carrinho</button>
                 </article>
 
                 <article class="card-produto" data-categoria="Doces">
-                    <img src="img/banana.jpg" alt="Banana com Canela" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmTLN2jaZZy5qnQP3EkFxXd39V8uOQlj0jRZBCF_1HsDr0lVHHNULRnugC&s=10" alt="Banana com Canela" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Banana com Canela</h3>
                     <p>Mussarela, banana fatiada, açúcar e canela.</p>
-                    <div class="preco">R$ 45,00</div>
+                    <div class="preco">R$ 54,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(10)">Adicionar ao Carrinho</button>
                 </article>
-
-                <!-- BEBIDAS -->
                 <article class="card-produto" data-categoria="Bebidas">
-                    <img src="img/refri.jpg" alt="Refrigerante 2L" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://pizzabrasil.comprageral.com/_core/_uploads/69/2021/03/0054260321ichgjhejkb.jpg" alt="Refrigerante 2L" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Refrigerante 2L</h3>
                     <p>Coca-Cola, Guaraná, Fanta.</p>
-                    <div class="preco">R$ 15,00</div>
+                    <div class="preco">R$ 14,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(11)">Adicionar ao Carrinho</button>
                 </article>
-
                 <article class="card-produto" data-categoria="Bebidas">
-                    <img src="img/suco.jpg" alt="Suco Natural 500ml" class="card-imagem" onerror="this.style.display='none'">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ-ygD54GbSnXBJIuob5XGAg4qrie7k8-zHFwrl8_nwgMLSuwS_VXhoqrS&s=10" alt="Suco Natural 500ml" class="card-imagem" onerror="this.style.display='none'">
                     <h3>Suco Natural 500ml</h3>
                     <p>Laranja, Limão, Maracujá.</p>
-                    <div class="preco">R$ 10,00</div>
+                    <div class="preco">R$ 9,90</div>
                     <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(12)">Adicionar ao Carrinho</button>
                 </article>
 
             </div>
         </div>
-
-        <!-- Coluna da Direita: Carrinho e Checkout -->
         <aside class="coluna-carrinho">
             <div class="carrinho-box">
                 <h3>🛒 Seu Carrinho (<span id="contador-itens">0</span>)</h3>
                 
                 <div id="lista-carrinho"></div>
-
                 <div class="resumo-valores">
                     <p>Total: <strong id="total-carrinho">R$ 0,00</strong></p>
                 </div>
-
                 <hr>
-
-                <!-- Finalização de Pedido -->
                 <form id="form-checkout">
                     <h4>Finalizar Pedido</h4>
-                    
                     <div class="form-group">
                         <label for="check-endereco">Endereço de Entrega</label>
                         <input type="text" id="check-endereco" required>
                     </div>
-
                     <div class="form-group">
                         <label for="check-complemento">Complemento/Ref.</label>
                         <input type="text" id="check-complemento">
                     </div>
-
                     <div class="form-group">
                         <label for="check-pagamento">Forma de Pagamento</label>
                         <select id="check-pagamento" required>
@@ -197,25 +168,21 @@
                             <option value="Dinheiro">Dinheiro</option>
                         </select>
                     </div>
-
                     <div class="form-group" id="bloco-troco" style="display: none;">
                         <label for="check-troco">Troco para quanto? (Deixe vazio se não precisar)</label>
                         <input type="text" id="check-troco" placeholder="Ex: R$ 100,00">
                     </div>
-
                     <button type="submit" class="btn btn-primario btn-block" id="btn-confirmar-pedido">Confirmar Pedido</button>
                 </form>
             </div>
         </aside>
     </main>
-
     <footer>
         <div class="container">
-            <p><span id="data-atual"></span> - Todos os direitos reservados.</p>
-            <p>Desenvolvido por: <strong>[NOME DO ALUNO 1]</strong>, <strong>[NOME DO ALUNO 2]</strong>, <strong>[NOME DO ALUNO 3]</strong></p>
+            <p><span id="data-atual"></span> - &copy; Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>Davi Gabriel</strong>, <strong>Rayeni</strong></p>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>

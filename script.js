@@ -1,5 +1,5 @@
 /* ==========================================================================
-1. BANCO DE DADOS (ARRAY DE PRODUTOS)
+1. BANCO DE DADOS (ARRAY DE PRODUTOS DA LA PIAZZETTA)
 ========================================================================== */
 const produtos = [
     { id: 1, nome: "Mussarela", categoria: "Tradicionais", ingredientes: "Molho de tomate, muito queijo mussarela, orégano.", preco: 45.00 },
@@ -20,7 +20,7 @@ const produtos = [
 ];
 
 /* ==========================================================================
-2. ATUALIZAÇÃO DOS MENUS (CÓDIGO BASE DO PROFESSOR ADAPTADO)
+2. ATUALIZAÇÃO DOS MENUS
 ========================================================================== */
 const btnSobre = document.getElementById('btn-sobre');
 const menuVerticalSobre = document.getElementById('menu-vertical-sobre');
@@ -68,7 +68,7 @@ if(spanData){
 }
 
 /* ==========================================================================
-4. SISTEMA DE MODAIS DINÂMICOS (Sobre e Contato)
+4. SISTEMA DE MODAIS DINÂMICOS (LA PIAZZETTA)
 ========================================================================== */
 function criarModal(titulo, conteudoHTML) {
     const overlay = document.createElement('div');
@@ -106,7 +106,7 @@ function criarModal(titulo, conteudoHTML) {
 document.addEventListener('click', function(e) {
     if (e.target.id === 'item-empresa') {
         e.preventDefault();
-        criarModal('A La Piazzetta', '<p>Fundada por três estudantes apaixonados por tecnologia e pizza, nossa missão é entregar o verdadeiro sabor da Itália na sua casa com a praticidade do mundo digital.</p><br><p><strong>Horário:</strong> Terça a Domingo, das 18h às 23h30.</p>');
+        criarModal('A La Piazzetta', '<p>Fundada por estudantes apaixonados por tecnologia e pizza, a nossa missão é entregar o verdadeiro sabor da Itália na sua casa com a praticidade do mundo digital.</p><br><p><strong>Horário:</strong> Terça a Domingo, das 18h às 23h30.</p>');
     }
     if (e.target.id === 'item-clientes') {
         e.preventDefault();
@@ -114,7 +114,7 @@ document.addEventListener('click', function(e) {
     }
     if (e.target.id === 'item-telefones') {
         e.preventDefault();
-        criarModal('Nossos Telefones', '<p>Central de Atendimento: <strong>(32) 3333-0000</strong></p><br><p>WhatsApp Delivery: <a href="tel:32999990000"><strong>(32) 99999-0000</strong></a></p>');
+        criarModal('Nossos Telefones - La Piazzetta', '<p>Central de Atendimento: <strong>(32) 3333-0000</strong></p><br><p>WhatsApp Delivery: <a href="tel:32999990000"><strong>(32) 99999-0000</strong></a></p>');
     }
     if (e.target.id === 'item-email') {
         e.preventDefault();
@@ -127,12 +127,12 @@ document.addEventListener('click', function(e) {
             <a href="https://outlook.office.com/mail/deeplink/compose?to=${email}&subject=${assunto}&body=${corpo}" target="_blank" class="btn btn-primario btn-block" style="margin-bottom:10px;">Abrir no Outlook Web</a>
             <a href="mailto:${email}?subject=${assunto}&body=${corpo}" class="btn btn-secundario btn-block">Usar Programa Padrão (Mail/Outro)</a>
         `;
-        criarModal('Envie um E-mail', conteudo);
+        criarModal('Envie um E-mail - La Piazzetta', conteudo);
     }
 });
 
 /* ==========================================================================
-5. FUNÇÕES VITAIS E LÓGICA DE FILTRO (HTML ESTÁTICO)
+5. FUNÇÕES VITAIS E LÓGICA DE FILTRO
 ========================================================================== */
 function formatarMoeda(valor) {
     return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
@@ -151,7 +151,7 @@ function filtrarCardapioHTML(categoria) {
 }
 
 /* ==========================================================================
-6. LÓGICA DE CADASTRO (Validação, CPF e TXT)
+6. LÓGICA DE CADASTRO
 ========================================================================== */
 function validaCPF(cpf) {
     cpf = cpf.replace(/[^\d]+/g,'');
@@ -172,13 +172,15 @@ function validaCPF(cpf) {
 const formCadastro = document.getElementById('form-cadastro');
 if (formCadastro) {
     const inputCpf = document.getElementById('cad-cpf');
-    inputCpf.addEventListener('input', function(e) {
-        let v = e.target.value.replace(/\D/g,"");
-        v = v.replace(/(\d{3})(\d)/,"$1.$2");
-        v = v.replace(/(\d{3})(\d)/,"$1.$2");
-        v = v.replace(/(\d{3})(\d{1,2})$/,"$1-$2");
-        e.target.value = v;
-    });
+    if (inputCpf) {
+        inputCpf.addEventListener('input', function(e) {
+            let v = e.target.value.replace(/\D/g,"");
+            v = v.replace(/(\d{3})(\d)/,"$1.$2");
+            v = v.replace(/(\d{3})(\d)/,"$1.$2");
+            v = v.replace(/(\d{3})(\d{1,2})$/,"$1-$2");
+            e.target.value = v;
+        });
+    }
 
     formCadastro.addEventListener('submit', function(e) {
         e.preventDefault();
@@ -213,15 +215,15 @@ if (formCadastro) {
         usuarios.push(novoUsuario);
         localStorage.setItem('usuarios', JSON.stringify(usuarios));
 
-        const conteudoTxt = `DADOS DE CADASTRO\nNome: ${nome}\nCPF: ${cpf}\nEndereço: ${endereco}\nE-mail: ${email}`;
+        const conteudoTxt = `LA PIAZZETTA - COMPROVANTE DE CADASTRO\nNome: ${nome}\nCPF: ${cpf}\nEndereço: ${endereco}\nE-mail: ${email}`;
         const blob = new Blob([conteudoTxt], { type: 'text/plain' });
         const link = document.createElement('a');
         link.href = URL.createObjectURL(blob);
-        link.download = `cadastro_${nome.replace(/\s+/g, '_')}.txt`;
+        link.download = `cadastro_piazzetta_${nome.replace(/\s+/g, '_')}.txt`;
         link.click();
         URL.revokeObjectURL(link.href);
 
-        msgSucesso.innerText = "Cadastro realizado com sucesso! Baixando comprovante... Redirecionando para login.";
+        msgSucesso.innerText = "Cadastro realizado com sucesso na La Piazzetta! Baixando comprovante...";
         msgSucesso.style.display = 'block';
         
         setTimeout(() => { window.location.href = 'login.html'; }, 2000);
@@ -229,32 +231,81 @@ if (formCadastro) {
 }
 
 /* ==========================================================================
-7. LÓGICA DE LOGIN
+7. LÓGICA DE LOGIN COM BLOQUEIO DE 3 TENTATIVAS INCORRETAS
 ========================================================================== */
 const formLogin = document.getElementById('form-login');
 if (formLogin) {
+    const inputEmail = document.getElementById('login-email');
+    const inputSenha = document.getElementById('login-senha');
+    const msgErro = document.getElementById('msg-erro-login');
+    const btnEntrar = formLogin.querySelector('button[type="submit"]');
+
+    function verificarBloqueio() {
+        const email = inputEmail.value.trim().toLowerCase();
+        if (!email) return;
+
+        let tentativas = parseInt(localStorage.getItem(`tentativas_${email}`)) || 0;
+        if (tentativas >= 3) {
+            msgErro.innerText = "Acesso bloqueado! Você errou a senha 3 vezes para este e-mail.";
+            msgErro.style.display = 'block';
+            btnEntrar.disabled = true;
+            btnEntrar.style.opacity = '0.5';
+            btnEntrar.style.cursor = 'not-allowed';
+        } else {
+            btnEntrar.disabled = false;
+            btnEntrar.style.opacity = '1';
+            btnEntrar.style.cursor = 'pointer';
+            if (!msgErro.innerText.includes('incorretos')) {
+                msgErro.style.display = 'none';
+            }
+        }
+    }
+
+    inputEmail.addEventListener('input', verificarBloqueio);
+
     formLogin.addEventListener('submit', function(e) {
         e.preventDefault();
-        const email = document.getElementById('login-email').value;
-        const senha = document.getElementById('login-senha').value;
-        const msgErro = document.getElementById('msg-erro-login');
         
+        const email = inputEmail.value.trim().toLowerCase();
+        const senha = inputSenha.value;
+        
+        let tentativas = parseInt(localStorage.getItem(`tentativas_${email}`)) || 0;
+
+        if (tentativas >= 3) {
+            msgErro.innerText = "Acesso bloqueado! Você errou a senha 3 vezes para este e-mail.";
+            msgErro.style.display = 'block';
+            btnEntrar.disabled = true;
+            return;
+        }
+
         let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-        
-        const usuarioValido = usuarios.find(u => u.email === email && u.senha === senha);
+        const usuarioValido = usuarios.find(u => u.email.toLowerCase() === email && u.senha === senha);
         
         if (usuarioValido) {
+            localStorage.removeItem(`tentativas_${email}`);
             localStorage.setItem('usuarioLogado', JSON.stringify(usuarioValido));
             window.location.href = 'cardapio.html';
         } else {
-            msgErro.innerText = "E-mail ou senha incorretos!";
+            tentativas++;
+            localStorage.setItem(`tentativas_${email}`, tentativas);
+            
+            if (tentativas >= 3) {
+                msgErro.innerText = "Senha incorreta! Atingiu o limite de 3 tentativas. Acesso bloqueado!";
+                btnEntrar.disabled = true;
+                btnEntrar.style.opacity = '0.5';
+                btnEntrar.style.cursor = 'not-allowed';
+            } else {
+                const restantes = 3 - tentativas;
+                msgErro.innerText = `E-mail ou senha incorretos! (${tentativas}/3 tentativas. Você tem mais ${restantes} chance${restantes > 1 ? 's' : ''}).`;
+            }
+            
             msgErro.style.display = 'block';
         }
     });
 }
 
 /* ==========================================================================
-8. ÁREA LOGADA (CARDÁPIO COM CARRINHO E FINALIZAÇÃO)
+8. ÁREA LOGADA (CARDÁPIO COM CARRINHO E CHECKOUT COM COMPROVANTE)
 ========================================================================== */
 const areaCardapioLogado = document.getElementById('area-cardapio-logado');
 let usuarioLogado = null;
@@ -265,7 +316,7 @@ if (areaCardapioLogado) {
     if (!usuarioLogado) {
         window.location.href = 'login.html';
     } else {
-        document.getElementById('saudacao-usuario').innerText = `Olá, ${usuarioLogado.nome.split(' ')[0]}! O que vai ser hoje?`;
+        document.getElementById('saudacao-usuario').innerText = `Olá, ${usuarioLogado.nome.split(' ')[0]}! O que vai ser hoje na La Piazzetta?`;
         document.getElementById('check-endereco').value = usuarioLogado.endereco; 
         
         const chaveCarrinho = `carrinho_${usuarioLogado.email}`;
@@ -275,10 +326,13 @@ if (areaCardapioLogado) {
         atualizarCarrinhoDOM();
     }
 
-    document.getElementById('btn-sair').addEventListener('click', function() {
-        localStorage.removeItem('usuarioLogado');
-        window.location.href = 'index.html';
-    });
+    const btnSair = document.getElementById('btn-sair');
+    if (btnSair) {
+        btnSair.addEventListener('click', function() {
+            localStorage.removeItem('usuarioLogado');
+            window.location.href = 'index.html';
+        });
+    }
 
     document.querySelectorAll('.btn-filtro').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -288,45 +342,120 @@ if (areaCardapioLogado) {
         });
     });
 
-    document.getElementById('check-pagamento').addEventListener('change', function() {
-        const blocoTroco = document.getElementById('bloco-troco');
-        if (this.value === 'Dinheiro') {
-            blocoTroco.style.display = 'block';
-        } else {
-            blocoTroco.style.display = 'none';
-        }
-    });
+    const checkPagamento = document.getElementById('check-pagamento');
+    if (checkPagamento) {
+        checkPagamento.addEventListener('change', function() {
+            const blocoTroco = document.getElementById('bloco-troco');
+            if (this.value === 'Dinheiro') {
+                blocoTroco.style.display = 'block';
+            } else {
+                blocoTroco.style.display = 'none';
+            }
+        });
+    }
 
-    document.getElementById('form-checkout').addEventListener('submit', function(e) {
-        e.preventDefault();
-        if(carrinho.length === 0) {
-            alert("Seu carrinho está vazio!");
-            return;
-        }
+    const formCheckout = document.getElementById('form-checkout');
+    if (formCheckout) {
+        formCheckout.addEventListener('submit', function(e) {
+            e.preventDefault();
+            if(carrinho.length === 0) {
+                alert("Seu carrinho está vazio!");
+                return;
+            }
 
-        const pag = document.getElementById('check-pagamento').value;
-        const numPedido = Math.floor(Math.random() * 10000);
-        
-        let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
-        pedidos.push({ cliente: usuarioLogado.email, itens: carrinho, pedido: numPedido, data: new Date() });
-        localStorage.setItem('pedidos', JSON.stringify(pedidos));
+            const pag = document.getElementById('check-pagamento').value;
+            const trocoInput = document.getElementById('check-troco');
+            const trocoInfo = (pag === 'Dinheiro' && trocoInput && trocoInput.value.trim() !== '') 
+                ? trocoInput.value.trim() 
+                : 'Não necessário';
 
-        carrinho = [];
-        salvarCarrinho();
-        atualizarCarrinhoDOM();
+            const numPedido = Math.floor(Math.random() * 90000) + 10000;
+            const dataHora = new Date();
 
-        const htmlResumo = `
-            <p><strong>Pedido #${numPedido}</strong> gerado com sucesso!</p>
-            <p>Pagamento: ${pag}</p>
-            <p>Tempo estimado de entrega: 45 a 60 minutos.</p>
-            <p>Obrigado pela preferência!</p>
-        `;
-        criarModal('Pedido Confirmado!', htmlResumo);
-        
-        document.getElementById('check-complemento').value = '';
-        document.getElementById('check-pagamento').value = '';
-        document.getElementById('bloco-troco').style.display = 'none';
-    });
+            // 1. Calcula o total e os itens antes de limpar o carrinho
+            const valorTotal = carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
+            const resumoItensTxt = carrinho.map(item => `  - ${item.quantidade}x ${item.nome} (${formatarMoeda(item.preco * item.quantidade)})`).join('\n');
+
+            // 2. Salva o histórico do pedido no localStorage
+            let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
+            pedidos.push({ 
+                cliente: usuarioLogado.email, 
+                itens: [...carrinho], 
+                pedido: numPedido, 
+                valorTotal: valorTotal,
+                pagamento: pag,
+                troco: trocoInfo,
+                data: dataHora 
+            });
+            localStorage.setItem('pedidos', JSON.stringify(pedidos));
+
+            // 3. Monta o texto do comprovante para o arquivo .txt
+            const comprovanteTexto = 
+`===================================================
+        LA PIAZZETTA - COMPROVANTE DE PEDIDO
+===================================================
+Pedido Nº: #${numPedido}
+Data/Hora: ${dataHora.toLocaleString('pt-BR')}
+
+--- DADOS DO CLIENTE ---
+Nome: ${usuarioLogado.nome}
+CPF: ${usuarioLogado.cpf || 'Não informado'}
+E-mail: ${usuarioLogado.email}
+Endereço: ${usuarioLogado.endereco}
+Complemento: ${document.getElementById('check-complemento').value || 'Nenhum'}
+
+--- ITENS SOLICITADOS ---
+${resumoItensTxt}
+
+--- FORMA DE PAGAMENTO & TOTAL ---
+Método: ${pag}
+Troco para: ${trocoInfo}
+VALOR TOTAL: ${formatarMoeda(valorTotal)}
+===================================================
+     Obrigado por escolher a La Piazzetta!
+===================================================`;
+
+            // 4. Limpa o carrinho
+            carrinho = [];
+            salvarCarrinho();
+            atualizarCarrinhoDOM();
+
+            // 5. Exibe no modal a forma de pagamento, valor total e o botão para baixar o comprovante
+            const htmlResumo = `
+                <div class="modal-resumo-compra">
+                    <p><strong>Pedido #${numPedido}</strong> gerado com sucesso!</p>
+                    <p><strong>Forma de Pagamento:</strong> ${pag}</p>
+                    ${pag === 'Dinheiro' ? `<p><strong>Troco para:</strong> ${trocoInfo}</p>` : ''}
+                    <p><strong>Valor Total:</strong> <span class="destaque-preco">${formatarMoeda(valorTotal)}</span></p>
+                    <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 8px;">Tempo estimado de entrega: 45 a 60 minutos.</p>
+                </div>
+                <button id="btn-download-comprovante" class="btn btn-comprovante btn-block">📄 Baixar Comprovante (.txt)</button>
+            `;
+            
+            criarModal('Pedido Confirmado!', htmlResumo);
+
+            // 6. Vincula a ação de download ao botão do comprovante
+            setTimeout(() => {
+                const btnDownload = document.getElementById('btn-download-comprovante');
+                if (btnDownload) {
+                    btnDownload.addEventListener('click', function() {
+                        const blob = new Blob([comprovanteTexto], { type: 'text/plain;charset=utf-8' });
+                        const link = document.createElement('a');
+                        link.href = URL.createObjectURL(blob);
+                        link.download = `comprovante_la_piazzetta_${numPedido}.txt`;
+                        link.click();
+                        URL.revokeObjectURL(link.href);
+                    });
+                }
+            }, 100);
+
+            // Reseta formulário
+            document.getElementById('check-complemento').value = '';
+            document.getElementById('check-pagamento').value = '';
+            if (trocoInput) trocoInput.value = '';
+            document.getElementById('bloco-troco').style.display = 'none';
+        });
+    }
 }
 
 function adicionarAoCarrinho(idProduto) {
@@ -356,8 +485,10 @@ function alterarQuantidade(idProduto, delta) {
 }
 
 function salvarCarrinho() {
-    const chave = `carrinho_${usuarioLogado.email}`;
-    localStorage.setItem(chave, JSON.stringify(carrinho));
+    if (usuarioLogado) {
+        const chave = `carrinho_${usuarioLogado.email}`;
+        localStorage.setItem(chave, JSON.stringify(carrinho));
+    }
 }
 
 function atualizarCarrinhoDOM() {
@@ -365,10 +496,11 @@ function atualizarCarrinhoDOM() {
     const spanTotal = document.getElementById('total-carrinho');
     const spanCount = document.getElementById('contador-itens');
     
+    if (!lista) return;
+
     lista.innerHTML = '';
     let total = 0;
     let count = 0;
-
     if (carrinho.length === 0) {
         lista.innerHTML = '<p style="text-align:center; padding: 20px; color: #666;">Seu carrinho está vazio.</p>';
     } else {
@@ -376,7 +508,6 @@ function atualizarCarrinhoDOM() {
             const subtotal = item.preco * item.quantidade;
             total += subtotal;
             count += item.quantidade;
-            
             lista.innerHTML += `
                 <div class="item-carrinho">
                     <div class="item-info">
@@ -392,7 +523,6 @@ function atualizarCarrinhoDOM() {
             `;
         });
     }
-
-    spanCount.innerText = count;
-    spanTotal.innerText = formatarMoeda(total);
+    if (spanCount) spanCount.innerText = count;
+    if (spanTotal) spanTotal.innerText = formatarMoeda(total);
 }

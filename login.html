@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <header id="cabecalho-principal">
         <div class="container header-flex">
             <a href="index.html" class="logo">🍕 La Piazzetta</a>
@@ -36,40 +35,35 @@
             </nav>
         </div>
     </header>
-
     <main class="container page-form">
         <div class="form-wrapper">
-            <h2>Fazer Login</h2>
+            <h2>Acesse sua conta</h2>
             <form id="form-login">
                 <div class="form-group">
                     <label for="login-email">E-mail</label>
-                    <input type="email" id="login-email" required placeholder="Digite seu e-mail">
+                    <input type="email" id="login-email" required placeholder="seuemail@exemplo.com">
                 </div>
-
                 <div class="form-group">
                     <label for="login-senha">Senha</label>
                     <input type="password" id="login-senha" required placeholder="Digite sua senha">
                 </div>
-
                 <div id="msg-erro-login" class="msg msg-erro"></div>
-
                 <div class="acoes-form">
                     <button type="submit" class="btn btn-primario">Entrar</button>
                     <a href="index.html" class="btn btn-secundario">Voltar</a>
                 </div>
-                
-                <p class="link-rodape">Ainda não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+                <div class="link-rodape">
+                    <p>Ainda não tem conta? <a href="cadastro.html">Cadastre-se aqui</a></p>
+                </div>
             </form>
         </div>
     </main>
-
     <footer>
         <div class="container">
-            <p><span id="data-atual"></span> - Todos os direitos reservados.</p>
-            <p>Desenvolvido por: <strong>[NOME DO ALUNO 1]</strong>, <strong>[NOME DO ALUNO 2]</strong>, <strong>[NOME DO ALUNO 3]</strong></p>
+            <p><span id="data-atual"></span> - &copy; Todos os direitos reservados.</p>
+            <p>Desenvolvido por: <strong>Davi Gabriel</strong>, <strong>Rayeni</strong></p>
         </div>
     </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
