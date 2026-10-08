@@ -1060,3 +1060,13 @@ footer strong {
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(39, 174, 96, 0.4);
 }
+/* Feedback visual para os cards clicáveis no Index */
+#grid-cardapio-index .card-produto {
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#grid-cardapio-index .card-produto:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(243, 156, 18, 0.35);
+}

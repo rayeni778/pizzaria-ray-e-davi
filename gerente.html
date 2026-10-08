@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do Gerente - La Piazzetta</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header id="cabecalho-principal">
+        <div class="container header-flex">
+            <a href="index.html" class="logo">🍕 La Piazzetta - Gerência</a>
+            <nav>
+                <ul class="menu-principal">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="login.html">Login Cliente</a></li>
+                    <li><a href="gerente.html" class="active">Área Gerente</a></li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-sobre">Sobre ▾</a>
+                        <ul id="menu-vertical-sobre" class="submenu">
+                            <li><a href="#" id="item-empresa">Empresa</a></li>
+                            <li><a href="#" id="item-clientes">Clientes</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-contato">Contato ▾</a>
+                        <ul id="menu-vertical-contato" class="submenu">
+                            <li><a href="#" id="item-telefones">Telefones</a></li>
+                            <li><a href="#" id="item-email">Email</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container page-form" style="flex-direction: column; padding: 40px 20px;">
+        
+        <!-- TELA DE LOGIN DO GERENTE (PADRÃO) -->
+        <div id="login-gerente-wrapper" class="form-wrapper" style="max-width: 440px;">
+            <h2>🔒 Login do Gerente</h2>
+            <form id="form-login-gerente">
+                <div class="form-group">
+                    <label for="gerente-email">E-mail Administrativo</label>
+                    <input type="email" id="gerente-email" required placeholder="gerente@lapiazzetta.com">
+                </div>
+                <div class="form-group">
+                    <label for="gerente-senha">Senha de Acesso</label>
+                    <input type="password" id="gerente-senha" required placeholder="Digite a senha">
+                </div>
+                <div id="msg-erro-gerente" class="msg msg-erro"></div>
+                <button type="submit" class="btn btn-primario btn-block" style="margin-top: 15px;">Acessar Painel</button>
+            </form>
+        </div>
+
+        <!-- PAINEL PROTEGIDO DA GERÊNCIA (EXIBIDO SÓ APÓS LOGAR) -->
+        <div id="painel-gerente-conteudo" style="display: none; width: 100%;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
+                <h1 style="color: var(--laranja-queijo);">⚙️ Gestão do Cardápio</h1>
+                <button id="btn-sair-gerente" class="btn btn-secundario">🔒 Sair da Gerência</button>
+            </div>
+
+            <div class="form-wrapper" style="max-width: 600px; margin: 0 auto 40px auto;">
+                <h2>➕ Cadastrar Novo Produto</h2>
+                <form id="form-novo-produto">
+                    <div class="form-group">
+                        <label for="prod-nome">Nome do Produto</label>
+                        <input type="text" id="prod-nome" required placeholder="Ex: Pizza Baiana Especial">
+                    </div>
+                    <div class="form-group">
+                        <label for="prod-categoria">Categoria</label>
+                        <select id="prod-categoria" required>
+                            <option value="Tradicionais">Tradicionais</option>
+                            <option value="Especiais">Especiais</option>
+                            <option value="Doces">Doces</option>
+                            <option value="Bebidas">Bebidas</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="prod-ingredientes">Ingredientes / Descrição</label>
+                        <input type="text" id="prod-ingredientes" required placeholder="Ex: Molho, calabresa moída, pimenta e cebola">
+                    </div>
+                    <div class="form-group">
+                        <label for="prod-preco">Preço (R$)</label>
+                        <input type="number" id="prod-preco" step="0.01" min="0" required placeholder="Ex: 62.90">
+                    </div>
+                    <div class="form-group">
+                        <label for="prod-imagem">Link da Imagem (URL)</label>
+                        <input type="url" id="prod-imagem" required placeholder="https://exemplo.com/imagem.jpg">
+                    </div>
+                    <button type="submit" class="btn btn-primario btn-block">Adicionar ao Cardápio</button>
+                </form>
+            </div>
+
+            <h2 style="color: var(--laranja-queijo); text-align: center; margin-bottom: 20px;">Produtos Extras Cadastrados</h2>
+            <div id="grid-produtos-gerente" class="grid-produtos"></div>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><span id="data-atual"></span> - &copy; Todos os direitos reservados. <strong>La Piazzetta</strong></p>
+            <p>Desenvolvido por: <strong>Davi Gabriel</strong>, <strong>Rayeni</strong></p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

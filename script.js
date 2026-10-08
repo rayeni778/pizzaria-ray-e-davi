@@ -1,26 +1,210 @@
 /* ==========================================================================
-1. BANCO DE DADOS (ARRAY DE PRODUTOS DA LA PIAZZETTA)
+1. BANCO DE DADOS (PRODUTOS BASE)
 ========================================================================== */
-const produtos = [
-    { id: 1, nome: "Mussarela", categoria: "Tradicionais", ingredientes: "Molho de tomate, muito queijo mussarela, orégano.", preco: 55.90 },
-    { id: 2, nome: "Calabresa", categoria: "Tradicionais", ingredientes: "Molho de tomate, mussarela, calabresa fatiada, cebola.", preco: 59.90 },
-    { id: 3, nome: "Portuguesa", categoria: "Tradicionais", ingredientes: "Mussarela, presunto, ovos, cebola, ervilha e azeitonas.", preco: 64.90 },
-    { id: 4, nome: "Margherita", categoria: "Tradicionais", ingredientes: "Molho de tomate, mussarela, manjericão fresco, tomate.", preco: 55.90 },
-    
-    { id: 5, nome: "Frango c/ Catupiry", categoria: "Especiais", ingredientes: "Mussarela, frango desfiado, legítimo Catupiry.", preco: 64.90 },
-    { id: 6, nome: "Quatro Queijos", categoria: "Especiais", ingredientes: "Mussarela, provolone, gorgonzola e parmesão.", preco: 69.90 },
-    { id: 7, nome: "Pepperoni", categoria: "Especiais", ingredientes: "Mussarela, fatias de pepperoni, pimentão (opcional).", preco: 69.90 },
-    { id: 8, nome: "Bacon com Cheddar", categoria: "Especiais", ingredientes: "Mussarela, bacon crocante, tiras de cheddar.", preco: 64.90 },
-    
-    { id: 9, nome: "Chocolate c/ Morango", categoria: "Doces", ingredientes: "Chocolate ao leite derretido, morangos frescos.", preco: 54.90 },
-    { id: 10, nome: "Banana com Canela", categoria: "Doces", ingredientes: "Mussarela, banana fatiada, açúcar e canela.", preco: 54.90 },
-    
-    { id: 11, nome: "Refrigerante 2L", categoria: "Bebidas", ingredientes: "Coca-Cola, Guaraná, Fanta.", preco: 14.90 },
-    { id: 12, nome: "Suco Natural 500ml", categoria: "Bebidas", ingredientes: "Laranja, Limão, Maracujá.", preco: 9.90 }
+const produtosBase = [
+    { id: 1, nome: "Mussarela", categoria: "Tradicionais", ingredientes: "Molho de tomate, muito queijo mussarela, orégano.", preco: 55.90, imagem: "https://blog.dellys.com.br/wp-content/uploads/2024/08/2-12.png" },
+    { id: 2, nome: "Calabresa", categoria: "Tradicionais", ingredientes: "Molho de tomate, mussarela, calabresa fatiada, cebola.", preco: 59.90, imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBYGlPYaTxuRplDuJFJXFHnHuF8C5zyQo6Z6REKwcekGVW46BRz10K840v&s=10" },
+    { id: 3, nome: "Portuguesa", categoria: "Tradicionais", ingredientes: "Mussarela, presunto, ovos, cebola, ervilha e azeitonas.", preco: 64.90, imagem: "https://www.ogastronomo.com.br/upload/389528334-curiosidades-sobre-a-pizza-portuguesa.jpg" },
+    { id: 4, nome: "Margherita", categoria: "Tradicionais", ingredientes: "Molho de tomate, mussarela, manjericão fresco, tomate.", preco: 55.90, imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRo4DA3QfVdp9Ky4eUa3MDq7TBY9aoLICpB-kFGZD8hJY61Ul3SXsJdxQc&s=10" },
+    { id: 5, nome: "Frango c/ Catupiry", categoria: "Especiais", ingredientes: "Mussarela, frango desfiado, legítimo Catupiry.", preco: 64.90, imagem: "https://www.sabornamesa.com.br/media/k2/items/cache/ada34cd2101afafaba465aad112ee3c1_XL.jpg" },
+    { id: 6, nome: "Quatro Queijos", categoria: "Especiais", ingredientes: "Mussarela, provolone, gorgonzola e parmesão.", preco: 69.90, imagem: "https://www.sabornamesa.com.br/media/k2/items/cache/32699af76cfc6e0191d612ffd4e88ee9_XL.jpg" },
+    { id: 7, nome: "Pepperoni", categoria: "Especiais", ingredientes: "Mussarela, fatias de pepperoni, pimentão (opcional).", preco: 69.90, imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2ut6XSIzNVv1tfDNaUab0b3-qeepbyjb6IRE_6nXtNiLk0tISsx2LRmR5&s=10" },
+    { id: 8, nome: "Bacon com Cheddar", categoria: "Especiais", ingredientes: "Mussarela, bacon crocante, tiras de cheddar.", preco: 64.90, imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyLMsZWjmxKEtF_bqIDiUTRXE8C93QXoJMJ0RHd2nN56eNfOW5gq6Db5o&s=10" },
+    { id: 9, nome: "Chocolate c/ Morango", categoria: "Doces", ingredientes: "Chocolate ao leite derretido, morangos frescos.", preco: 54.90, imagem: "https://beatoven.com.br/wp-content/uploads/2024/11/sq-chocolate-com-morango.jpg.webp" },
+    { id: 10, nome: "Banana com Canela", categoria: "Doces", ingredientes: "Mussarela, banana fatiada, açúcar e canela.", preco: 54.90, imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmTLN2jaZZy5qnQP3EkFxXd39V8uOQlj0jRZBCF_1HsDr0lVHHNULRnugC&s=10" },
+    { id: 11, nome: "Refrigerante 2L", categoria: "Bebidas", ingredientes: "Coca-Cola, Guaraná, Fanta.", preco: 14.90, imagem: "https://pizzabrasil.comprageral.com/_core/_uploads/69/2021/03/0054260321ichgjhejkb.jpg" },
+    { id: 12, nome: "Suco Natural 500ml", categoria: "Bebidas", ingredientes: "Laranja, Limão, Maracujá.", preco: 9.90, imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ-ygD54GbSnXBJIuob5XGAg4qrie7k8-zHFwrl8_nwgMLSuwS_VXhoqrS&s=10" }
 ];
 
+function obterTodosProdutos() {
+    const extras = JSON.parse(localStorage.getItem('produtosExtras')) || [];
+    return [...produtosBase, ...extras];
+}
+
+function formatarMoeda(valor) {
+    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+}
+
 /* ==========================================================================
-2. ATUALIZAÇÃO DOS MENUS
+2. CLIQUE NOS CARDS DO INDEX (REDIRECIONAMENTO DIRETO PARA O LOGIN)
+========================================================================== */
+document.addEventListener('DOMContentLoaded', function() {
+    const gridIndex = document.getElementById('grid-cardapio-index');
+    if (gridIndex) {
+        gridIndex.addEventListener('click', function(e) {
+            const card = e.target.closest('.card-produto');
+            if (card) {
+                window.location.href = 'login.html';
+            }
+        });
+    }
+
+    carregarProdutosExtrasNasGrids();
+    verificarAutenticacaoGerente();
+});
+
+/* ==========================================================================
+3. ANEXAR PRODUTOS CRIADOS PELO GERENTE NAS PÁGINAS
+========================================================================== */
+function carregarProdutosExtrasNasGrids() {
+    const extras = JSON.parse(localStorage.getItem('produtosExtras')) || [];
+    if (extras.length === 0) return;
+
+    const gridIndex = document.getElementById('grid-cardapio-index');
+    const gridPedidos = document.getElementById('grid-cardapio-pedidos');
+
+    extras.forEach(p => {
+        if (gridIndex) {
+            const article = document.createElement('article');
+            article.className = 'card-produto';
+            article.setAttribute('data-categoria', p.categoria);
+            article.style.cursor = 'pointer';
+            article.innerHTML = `
+                <img src="${p.imagem}" alt="${p.nome}" class="card-imagem" onerror="this.style.display='none'">
+                <h3>${p.nome}</h3>
+                <p>${p.ingredientes}</p>
+                <div class="preco">${formatarMoeda(p.preco)}</div>
+                <p class="aviso-login">Faça login para pedir</p>
+            `;
+            gridIndex.appendChild(article);
+        }
+
+        if (gridPedidos) {
+            const article = document.createElement('article');
+            article.className = 'card-produto';
+            article.setAttribute('data-categoria', p.categoria);
+            article.innerHTML = `
+                <img src="${p.imagem}" alt="${p.nome}" class="card-imagem" onerror="this.style.display='none'">
+                <h3>${p.nome}</h3>
+                <p>${p.ingredientes}</p>
+                <div class="preco">${formatarMoeda(p.preco)}</div>
+                <button class="btn btn-primario btn-block" onclick="adicionarAoCarrinho(${p.id})">Adicionar ao Carrinho</button>
+            `;
+            gridPedidos.appendChild(article);
+        }
+    });
+}
+
+function filtrarCardapioHTML(categoria) {
+    const cards = document.querySelectorAll('.card-produto');
+    cards.forEach(card => {
+        if (categoria === 'Todos' || card.getAttribute('data-categoria') === categoria) {
+            card.style.display = 'flex'; 
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
+/* ==========================================================================
+4. CONTROLE DE AUTENTICAÇÃO E PAINEL DA ÁREA DO GERENTE
+========================================================================== */
+function verificarAutenticacaoGerente() {
+    const wrapperLogin = document.getElementById('login-gerente-wrapper');
+    const conteudoPainel = document.getElementById('painel-gerente-conteudo');
+    
+    if (!wrapperLogin || !conteudoPainel) return;
+
+    const autenticado = sessionStorage.getItem('gerenteLogado') === 'true';
+    if (autenticado) {
+        wrapperLogin.style.display = 'none';
+        conteudoPainel.style.display = 'block';
+        renderizarTabelaGerente();
+    } else {
+        wrapperLogin.style.display = 'block';
+        conteudoPainel.style.display = 'none';
+    }
+}
+
+const formLoginGerente = document.getElementById('form-login-gerente');
+if (formLoginGerente) {
+    formLoginGerente.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.getElementById('gerente-email').value.trim().toLowerCase();
+        const senha = document.getElementById('gerente-senha').value;
+        const msgErro = document.getElementById('msg-erro-gerente');
+
+        if (email === 'gerente@lapiazzetta.com' && senha === 'admin') {
+            sessionStorage.setItem('gerenteLogado', 'true');
+            if (msgErro) msgErro.style.display = 'none';
+            verificarAutenticacaoGerente();
+        } else {
+            if (msgErro) {
+                msgErro.innerText = "E-mail ou senha de gerente incorretos!";
+                msgErro.style.display = 'block';
+            }
+        }
+    });
+}
+
+const btnSairGerente = document.getElementById('btn-sair-gerente');
+if (btnSairGerente) {
+    btnSairGerente.addEventListener('click', function() {
+        sessionStorage.removeItem('gerenteLogado');
+        verificarAutenticacaoGerente();
+    });
+}
+
+function renderizarTabelaGerente() {
+    const container = document.getElementById('grid-produtos-gerente');
+    if (!container) return;
+
+    const extras = JSON.parse(localStorage.getItem('produtosExtras')) || [];
+    container.innerHTML = '';
+
+    if (extras.length === 0) {
+        container.innerHTML = '<p style="grid-column: 1/-1; text-align:center;">Nenhum produto extra cadastrado até ao momento.</p>';
+        return;
+    }
+
+    extras.forEach(p => {
+        const article = document.createElement('article');
+        article.className = 'card-produto';
+        article.innerHTML = `
+            <img src="${p.imagem}" alt="${p.nome}" class="card-imagem" onerror="this.style.display='none'">
+            <h3>${p.nome} (${p.categoria})</h3>
+            <p>${p.ingredientes}</p>
+            <div class="preco">${formatarMoeda(p.preco)}</div>
+            <button class="btn btn-primario btn-block" style="background-color:#e74c3c;" onclick="removerProdutoGerente(${p.id})">🗑️ Remover</button>
+        `;
+        container.appendChild(article);
+    });
+}
+
+const formNovoProduto = document.getElementById('form-novo-produto');
+if (formNovoProduto) {
+    formNovoProduto.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const nome = document.getElementById('prod-nome').value.trim();
+        const categoria = document.getElementById('prod-categoria').value;
+        const ingredientes = document.getElementById('prod-ingredientes').value.trim();
+        const preco = parseFloat(document.getElementById('prod-preco').value);
+        const imagem = document.getElementById('prod-imagem').value.trim();
+
+        let extras = JSON.parse(localStorage.getItem('produtosExtras')) || [];
+        const novoId = Date.now();
+
+        extras.push({ id: novoId, nome, categoria, ingredientes, preco, imagem });
+        localStorage.setItem('produtosExtras', JSON.stringify(extras));
+
+        alert(`O produto "${nome}" foi cadastrado com sucesso!`);
+        formNovoProduto.reset();
+        renderizarTabelaGerente();
+    });
+}
+
+function removerProdutoGerente(idProduto) {
+    if (confirm("Deseja remover este produto cadastrado?")) {
+        let extras = JSON.parse(localStorage.getItem('produtosExtras')) || [];
+        extras = extras.filter(p => p.id !== idProduto);
+        localStorage.setItem('produtosExtras', JSON.stringify(extras));
+        renderizarTabelaGerente();
+    }
+}
+
+/* ==========================================================================
+5. MENUS DROPDOWN (SOBRE E CONTATO) E DATA DO RODAPÉ
 ========================================================================== */
 const btnSobre = document.getElementById('btn-sobre');
 const menuVerticalSobre = document.getElementById('menu-vertical-sobre');
@@ -31,7 +215,6 @@ function abreMenu(event, menuAtual) {
     event.preventDefault();
     if(menuVerticalSobre && menuAtual !== menuVerticalSobre) menuVerticalSobre.classList.remove('active');
     if(menuVerticalContato && menuAtual !== menuVerticalContato) menuVerticalContato.classList.remove('active');
-    
     menuAtual.classList.toggle('active');
 }
 
@@ -56,9 +239,6 @@ document.addEventListener('click', function(event) {
     fechaMenu(event, menuVerticalContato, btnContato);
 });
 
-/* ==========================================================================
-3. DATA DINÂMICA NO RODAPÉ
-========================================================================== */
 const dataAtualFormatada = new Date().toLocaleDateString('pt-BR', { 
     weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' 
 });
@@ -68,7 +248,7 @@ if(spanData){
 }
 
 /* ==========================================================================
-4. SISTEMA DE MODAIS DINÂMICOS (LA PIAZZETTA)
+6. MODAIS POPUP (EMPRESA, CLIENTES, TELEFONES, EMAIL)
 ========================================================================== */
 function criarModal(titulo, conteudoHTML) {
     const overlay = document.createElement('div');
@@ -132,26 +312,7 @@ document.addEventListener('click', function(e) {
 });
 
 /* ==========================================================================
-5. FUNÇÕES VITAIS E LÓGICA DE FILTRO
-========================================================================== */
-function formatarMoeda(valor) {
-    return valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
-}
-
-function filtrarCardapioHTML(categoria) {
-    const cards = document.querySelectorAll('.card-produto');
-    
-    cards.forEach(card => {
-        if (categoria === 'Todos' || card.getAttribute('data-categoria') === categoria) {
-            card.style.display = 'flex'; 
-        } else {
-            card.style.display = 'none';
-        }
-    });
-}
-
-/* ==========================================================================
-6. LÓGICA DE CADASTRO
+7. LÓGICA DE CADASTRO DE CLIENTE
 ========================================================================== */
 function validaCPF(cpf) {
     cpf = cpf.replace(/[^\d]+/g,'');
@@ -204,7 +365,6 @@ if (formCadastro) {
         }
 
         let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-        
         if (usuarios.some(u => u.email === email)) {
             msgErro.innerText = "Este e-mail já está cadastrado!";
             msgErro.style.display = 'block';
@@ -231,7 +391,7 @@ if (formCadastro) {
 }
 
 /* ==========================================================================
-7. LÓGICA DE LOGIN COM BLOQUEIO DE 3 TENTATIVAS INCORRETAS
+8. LÓGICA DE LOGIN DO CLIENTE (BLOQUEIO 3 TENTATIVAS)
 ========================================================================== */
 const formLogin = document.getElementById('form-login');
 if (formLogin) {
@@ -305,7 +465,7 @@ if (formLogin) {
 }
 
 /* ==========================================================================
-8. ÁREA LOGADA (CARDÁPIO COM CARRINHO E CHECKOUT COM COMPROVANTE)
+9. ÁREA LOGADA (CARRINHO E CHECKOUT)
 ========================================================================== */
 const areaCardapioLogado = document.getElementById('area-cardapio-logado');
 let usuarioLogado = null;
@@ -346,11 +506,7 @@ if (areaCardapioLogado) {
     if (checkPagamento) {
         checkPagamento.addEventListener('change', function() {
             const blocoTroco = document.getElementById('bloco-troco');
-            if (this.value === 'Dinheiro') {
-                blocoTroco.style.display = 'block';
-            } else {
-                blocoTroco.style.display = 'none';
-            }
+            blocoTroco.style.display = (this.value === 'Dinheiro') ? 'block' : 'none';
         });
     }
 
@@ -365,18 +521,14 @@ if (areaCardapioLogado) {
 
             const pag = document.getElementById('check-pagamento').value;
             const trocoInput = document.getElementById('check-troco');
-            const trocoInfo = (pag === 'Dinheiro' && trocoInput && trocoInput.value.trim() !== '') 
-                ? trocoInput.value.trim() 
-                : 'Não necessário';
+            const trocoInfo = (pag === 'Dinheiro' && trocoInput && trocoInput.value.trim() !== '') ? trocoInput.value.trim() : 'Não necessário';
 
             const numPedido = Math.floor(Math.random() * 90000) + 10000;
             const dataHora = new Date();
 
-            // 1. Calcula o total e os itens antes de limpar o carrinho
             const valorTotal = carrinho.reduce((total, item) => total + (item.preco * item.quantidade), 0);
             const resumoItensTxt = carrinho.map(item => `  - ${item.quantidade}x ${item.nome} (${formatarMoeda(item.preco * item.quantidade)})`).join('\n');
 
-            // 2. Salva o histórico do pedido no localStorage
             let pedidos = JSON.parse(localStorage.getItem('pedidos')) || [];
             pedidos.push({ 
                 cliente: usuarioLogado.email, 
@@ -389,7 +541,6 @@ if (areaCardapioLogado) {
             });
             localStorage.setItem('pedidos', JSON.stringify(pedidos));
 
-            // 3. Monta o texto do comprovante para o arquivo .txt
             const comprovanteTexto = 
 `===================================================
         LA PIAZZETTA - COMPROVANTE DE PEDIDO
@@ -402,7 +553,6 @@ Nome: ${usuarioLogado.nome}
 CPF: ${usuarioLogado.cpf || 'Não informado'}
 E-mail: ${usuarioLogado.email}
 Endereço: ${usuarioLogado.endereco}
-Complemento: ${document.getElementById('check-complemento').value || 'Nenhum'}
 
 --- ITENS SOLICITADOS ---
 ${resumoItensTxt}
@@ -411,30 +561,23 @@ ${resumoItensTxt}
 Método: ${pag}
 Troco para: ${trocoInfo}
 VALOR TOTAL: ${formatarMoeda(valorTotal)}
-===================================================
-     Obrigado por escolher a La Piazzetta!
 ===================================================`;
 
-            // 4. Limpa o carrinho
             carrinho = [];
             salvarCarrinho();
             atualizarCarrinhoDOM();
 
-            // 5. Exibe no modal a forma de pagamento, valor total e o botão para baixar o comprovante
             const htmlResumo = `
                 <div class="modal-resumo-compra">
                     <p><strong>Pedido #${numPedido}</strong> gerado com sucesso!</p>
                     <p><strong>Forma de Pagamento:</strong> ${pag}</p>
-                    ${pag === 'Dinheiro' ? `<p><strong>Troco para:</strong> ${trocoInfo}</p>` : ''}
                     <p><strong>Valor Total:</strong> <span class="destaque-preco">${formatarMoeda(valorTotal)}</span></p>
-                    <p style="font-size: 0.85rem; opacity: 0.8; margin-top: 8px;">Tempo estimado de entrega: 45 a 60 minutos.</p>
                 </div>
                 <button id="btn-download-comprovante" class="btn btn-comprovante btn-block">📄 Baixar Comprovante (.txt)</button>
             `;
             
             criarModal('Pedido Confirmado!', htmlResumo);
 
-            // 6. Vincula a ação de download ao botão do comprovante
             setTimeout(() => {
                 const btnDownload = document.getElementById('btn-download-comprovante');
                 if (btnDownload) {
@@ -449,7 +592,6 @@ VALOR TOTAL: ${formatarMoeda(valorTotal)}
                 }
             }, 100);
 
-            // Reseta formulário
             document.getElementById('check-complemento').value = '';
             document.getElementById('check-pagamento').value = '';
             if (trocoInput) trocoInput.value = '';
@@ -459,7 +601,10 @@ VALOR TOTAL: ${formatarMoeda(valorTotal)}
 }
 
 function adicionarAoCarrinho(idProduto) {
-    const produto = produtos.find(p => p.id === idProduto);
+    const todos = obterTodosProdutos();
+    const produto = todos.find(p => p.id === idProduto);
+    if (!produto) return;
+
     const itemExistente = carrinho.find(item => item.id === idProduto);
     
     if (itemExistente) {
@@ -471,7 +616,6 @@ function adicionarAoCarrinho(idProduto) {
     salvarCarrinho();
     atualizarCarrinhoDOM();
 
-    // Rola suavemente até o topo da caixa do carrinho
     const carrinhoBox = document.querySelector('.carrinho-box');
     if (carrinhoBox) {
         carrinhoBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
