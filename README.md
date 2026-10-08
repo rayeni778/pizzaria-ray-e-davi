@@ -1,1 +1,1 @@
-# pizzaria-ray-e-davi
+lapiazzeta é um projeto academico sem fins lucrativos
