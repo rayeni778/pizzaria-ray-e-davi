@@ -2,21 +2,21 @@
 1. BANCO DE DADOS (ARRAY DE PRODUTOS DA LA PIAZZETTA)
 ========================================================================== */
 const produtos = [
-    { id: 1, nome: "Mussarela", categoria: "Tradicionais", ingredientes: "Molho de tomate, muito queijo mussarela, orégano.", preco: 45.00 },
-    { id: 2, nome: "Calabresa", categoria: "Tradicionais", ingredientes: "Molho de tomate, mussarela, calabresa fatiada, cebola.", preco: 48.00 },
-    { id: 3, nome: "Portuguesa", categoria: "Tradicionais", ingredientes: "Mussarela, presunto, ovos, cebola, ervilha e azeitonas.", preco: 52.00 },
-    { id: 4, nome: "Margherita", categoria: "Tradicionais", ingredientes: "Molho de tomate, mussarela, manjericão fresco, tomate.", preco: 47.00 },
+    { id: 1, nome: "Mussarela", categoria: "Tradicionais", ingredientes: "Molho de tomate, muito queijo mussarela, orégano.", preco: 55.90 },
+    { id: 2, nome: "Calabresa", categoria: "Tradicionais", ingredientes: "Molho de tomate, mussarela, calabresa fatiada, cebola.", preco: 59.90 },
+    { id: 3, nome: "Portuguesa", categoria: "Tradicionais", ingredientes: "Mussarela, presunto, ovos, cebola, ervilha e azeitonas.", preco: 64.90 },
+    { id: 4, nome: "Margherita", categoria: "Tradicionais", ingredientes: "Molho de tomate, mussarela, manjericão fresco, tomate.", preco: 55.90 },
     
-    { id: 5, nome: "Frango c/ Catupiry", categoria: "Especiais", ingredientes: "Mussarela, frango desfiado, legítimo Catupiry.", preco: 58.00 },
-    { id: 6, nome: "Quatro Queijos", categoria: "Especiais", ingredientes: "Mussarela, provolone, gorgonzola e parmesão.", preco: 60.00 },
-    { id: 7, nome: "Pepperoni", categoria: "Especiais", ingredientes: "Mussarela, fatias de pepperoni, pimentão (opcional).", preco: 62.00 },
-    { id: 8, nome: "Bacon com Cheddar", categoria: "Especiais", ingredientes: "Mussarela, bacon crocante, tiras de cheddar.", preco: 65.00 },
+    { id: 5, nome: "Frango c/ Catupiry", categoria: "Especiais", ingredientes: "Mussarela, frango desfiado, legítimo Catupiry.", preco: 64.90 },
+    { id: 6, nome: "Quatro Queijos", categoria: "Especiais", ingredientes: "Mussarela, provolone, gorgonzola e parmesão.", preco: 69.90 },
+    { id: 7, nome: "Pepperoni", categoria: "Especiais", ingredientes: "Mussarela, fatias de pepperoni, pimentão (opcional).", preco: 69.90 },
+    { id: 8, nome: "Bacon com Cheddar", categoria: "Especiais", ingredientes: "Mussarela, bacon crocante, tiras de cheddar.", preco: 64.90 },
     
-    { id: 9, nome: "Chocolate c/ Morango", categoria: "Doces", ingredientes: "Chocolate ao leite derretido, morangos frescos.", preco: 55.00 },
-    { id: 10, nome: "Banana com Canela", categoria: "Doces", ingredientes: "Mussarela, banana fatiada, açúcar e canela.", preco: 45.00 },
+    { id: 9, nome: "Chocolate c/ Morango", categoria: "Doces", ingredientes: "Chocolate ao leite derretido, morangos frescos.", preco: 54.90 },
+    { id: 10, nome: "Banana com Canela", categoria: "Doces", ingredientes: "Mussarela, banana fatiada, açúcar e canela.", preco: 54.90 },
     
-    { id: 11, nome: "Refrigerante 2L", categoria: "Bebidas", ingredientes: "Coca-Cola, Guaraná, Fanta.", preco: 15.00 },
-    { id: 12, nome: "Suco Natural 500ml", categoria: "Bebidas", ingredientes: "Laranja, Limão, Maracujá.", preco: 10.00 }
+    { id: 11, nome: "Refrigerante 2L", categoria: "Bebidas", ingredientes: "Coca-Cola, Guaraná, Fanta.", preco: 14.90 },
+    { id: 12, nome: "Suco Natural 500ml", categoria: "Bebidas", ingredientes: "Laranja, Limão, Maracujá.", preco: 9.90 }
 ];
 
 /* ==========================================================================
@@ -470,6 +470,12 @@ function adicionarAoCarrinho(idProduto) {
     
     salvarCarrinho();
     atualizarCarrinhoDOM();
+
+    // Rola suavemente até o topo da caixa do carrinho
+    const carrinhoBox = document.querySelector('.carrinho-box');
+    if (carrinhoBox) {
+        carrinhoBox.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
 }
 
 function alterarQuantidade(idProduto, delta) {

@@ -3,110 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nossa História - La piazzeta</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Nossa História - La Piazzetta</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="about">
-    <header class="main-header" id="site-header">
-        <div class="header-content">
-            <a class="logo" href="index.html">
-                <span class="logo-icon">🔥</span>
-                <span>Sabor <span>&</span> Brasa</span>
-            </a>
-            <button class="menu-toggle" id="menu-toggle">☰</button>
-            <nav class="main-nav" id="main-nav">
-                <a href="index.html">Início</a>
-                <a href="saborBrasa.html">Cardápio</a>
-                <a href="sobre.html" class="active">Nossa História</a>
-                <a href="site.html">Área VIP</a>
-                <a href="login.html" class="header-login">Entrar</a>
-                <div class="dropdown">
-                    <a href="#" class="dropdown-btn">Contato ▾</a>
-                    <div class="submenu">
-                        <a href="#" id="link-telefone">📞 Telefones</a>
-                        <a href="mailto:contato@saborebrasa.com.br">✉️ E-mail</a>
-                        <a href="https://wa.me/5511999998888" target="_blank">💬 WhatsApp</a>
-                    </div>
-                </div>
-                <a href="carrinho.html">
-                    🛒 Carrinho <span id="contador-carrinho" style="background:var(--color-accent);padding:2px 8px;border-radius:12px;font-size:0.75rem;">0</span>
-                </a>
+    <header id="cabecalho-principal">
+        <div class="container header-flex">
+            <a href="index.html" class="logo">🍕 La Piazzetta</a>
+            <nav>
+                <ul class="menu-principal">
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-sobre">Sobre ▾</a>
+                        <ul id="menu-vertical-sobre" class="submenu">
+                            <li><a href="#" id="item-empresa">Empresa</a></li>
+                            <li><a href="#" id="item-clientes">Clientes</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#" id="btn-contato">Contato ▾</a>
+                        <ul id="menu-vertical-contato" class="submenu">
+                            <li><a href="#" id="item-telefones">Telefones</a></li>
+                            <li><a href="#" id="item-email">Email</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </nav>
         </div>
     </header>
-    <main class="section" style="padding-top:140px;">
-        <div class="section-container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <span class="section-tag">Nossa Essência</span>
-                    <h1 class="section-title">A brasa é o nosso <span>ingrediente secreto.</span></h1>
-                    <p>O Sabor & Brasa nasceu com o objetivo de oferecer comidas deliciosas, feitas com carinho e ingredientes de alta qualidade assados no autêntico forno a lenha.</p>
-                    <p>Buscamos proporcionar uma experiência saborosa, simples e marcante para nossos clientes em cada fatia.</p>
-                </div>
-                <div class="about-image">
-                    <img src="img.jpg" alt="Fachada Sabor & Brasa">
-                </div>
+    <main class="container" style="padding: 60px 20px;">
+        <div class="about-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: center;">
+            <div class="about-text">
+                <h1 style="color: var(--laranja-queijo); margin-bottom: 20px;">A tradição é o nosso segredo.</h1>
+                <p style="margin-bottom: 15px;">A La Piazzetta nasceu com o objetivo de oferecer pizzas deliciosas, feitas com carinho e ingredientes de alta qualidade assados no autêntico forno a lenha.</p>
+                <p>Buscamos proporcionar uma experiência saborosa, simples e marcante para nossos clientes em cada fatia.</p>
             </div>
-            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:25px; margin-top:60px;">
-                <div class="card" style="padding:30px;">
-                    <h3>🍕 Nossa Missão</h3>
-                    <p style="margin-top:10px; color:var(--text-muted);">Oferecer pizzas inesquecíveis e proporcionar momentos especiais para você e sua família.</p>
-                </div>
-                <div class="card" style="padding:30px;">
-                    <h3>❤️ Nossos Valores</h3>
-                    <p style="margin-top:10px; color:var(--text-muted);">Qualidade, tradição do forno a lenha, respeito aos clientes e paixão por uma boa comida.</p>
-                </div>
-                <div class="card" style="padding:30px;">
-                    <h3>🔥 Nossa Paixão</h3>
-                    <p style="margin-top:10px; color:var(--text-muted);">Transformar ingredientes frescos em momentos incríveis ao redor da mesa.</p>
-                </div>
+            <div class="about-image">
+                <img src="img.jpg.jpg" alt="Fachada La Piazzetta" style="width: 100%; border-radius: 12px; box-shadow: var(--sombra-padrao);">
+            </div>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:25px; margin-top:60px;">
+            <div class="card-produto" style="padding:25px;">
+                <h3 style="color: var(--laranja-queijo);">🍕 Nossa Missão</h3>
+                <p style="margin-top:10px;">Oferecer pizzas inesquecíveis e proporcionar momentos especiais para você e sua família.</p>
+            </div>
+            <div class="card-produto" style="padding:25px;">
+                <h3 style="color: var(--laranja-queijo);">❤️ Nossos Valores</h3>
+                <p style="margin-top:10px;">Qualidade, tradição do forno a lenha, respeito aos clientes e paixão por uma boa comida.</p>
+            </div>
+            <div class="card-produto" style="padding:25px;">
+                <h3 style="color: var(--laranja-queijo);">🔥 Nossa Paixão</h3>
+                <p style="margin-top:10px;">Transformar ingredientes frescos em momentos incríveis ao redor da mesa.</p>
             </div>
         </div>
     </main>
     <footer>
-        <div class="footer-content">
-            <div>
-                <a class="footer-logo" href="index.html">Sabor <span>&</span> Brasa</a>
-                <p style="margin-top:15px; color:rgba(255,255,255,0.7); font-size:0.85rem;">Forno a lenha, ingredientes de verdade e aquela mesa que pede mais uma fatia.</p>
-            </div>
-            <div class="footer-column">
-                <h4>Navegação</h4>
-                <a href="index.html">Início</a>
-                <a href="saborBrasa.html">Cardápio</a>
-                <a href="sobre.html">Nossa História</a>
-                <a href="site.html">Área VIP</a>
-            </div>
-            <div class="footer-column">
-                <h4>Contato</h4>
-                <a href="https://wa.me/5511999998888" target="_blank">(11) 99999-8888</a>
-                <a href="mailto:contato@saborebrasa.com.br">contato@saborebrasa.com.br</a>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; <span id="data-atual"></span> Sabor & Brasa. Todos os direitos reservados.</p>
+        <div class="container">
+            <p><span id="data-atual"></span> - &copy; Todos os direitos reservados. <strong>La Piazzetta</strong></p>
+            <p>Desenvolvido por: <strong>Davi Gabriel</strong>, <strong>Rayeni</strong></p>
         </div>
     </footer>
-    <div id="modal-telefone">
-        <div class="modal-card">
-            <button class="close" id="fechar-modal">&times;</button>
-            <span class="section-tag">Contato</span>
-            <h2>Vamos conversar?</h2>
-            <div class="phone-list">
-                <div class="phone-item">
-                    <div class="phone-item-icon">📱</div>
-                    <div>
-                        <small>WhatsApp / Delivery</small>
-                        <strong>(11) 99999-8888</strong>
-                    </div>
-                </div>
-            </div>
-            <button class="btn btn-primary" style="width:100%;" id="copiar-tel">Copiar WhatsApp</button>
-        </div>
-    </div>
-    <div id="toast-notificacao" class="alert alert-success" style="position:fixed; bottom:20px; right:20px; z-index:10000; display:none;"></div>
     <script src="script.js"></script>
 </body>
 </html>
